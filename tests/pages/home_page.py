@@ -1,6 +1,4 @@
 """Page object for the CS sample application's landing page."""
-from __future__ import annotations
-
 from typing import Final
 
 from playwright.sync_api import expect

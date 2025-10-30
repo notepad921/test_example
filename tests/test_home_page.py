@@ -1,8 +1,5 @@
 """Smoke tests for the sample application's home page."""
-from __future__ import annotations
-
 from playwright.sync_api import Page
-
 from tests.pages.home_page import HomePage
 
 

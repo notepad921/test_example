@@ -1,6 +1,6 @@
-# Test Automation Foundation
+# Test Automation Example
 
-This repository showcases a professional Python UI automation skeleton built with
+This repository showcases a Python UI automation skeleton built with
 Playwright, pytest, and the Page Object Model.
 
 ## Project layout
