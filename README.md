@@ -8,6 +8,7 @@ Playwright, pytest, and the Page Object Model.
 ```
 ├── config/                 # Global settings (base URL, etc.)
 ├── requirements.txt        # Python dependencies
+├── Dockerfile              # Container image for running the test suite
 └── tests/
     ├── conftest.py         # Shared fixtures
     ├── data/               # Test data samples
@@ -16,7 +17,7 @@ Playwright, pytest, and the Page Object Model.
     └── test_home_page.py   # Example smoke test
 ```
 
-## Getting started
+## Getting started locally
 
 ```bash
 python -m venv .venv
@@ -25,6 +26,27 @@ pip install -r requirements.txt
 playwright install
 pytest
 ```
+
+## Running in Docker
+
+You can build and execute the tests inside a container without installing
+any system dependencies locally. The image is based on the official
+Playwright runtime so the browsers are preinstalled.
+
+```bash
+docker build -t playwright-tests .
+docker run --rm playwright-tests
+```
+
+The base image already ships with the Playwright browsers, so no extra
+setup commands are required inside the container.
+
+## Continuous integration
+
+A GitHub Actions workflow (`.github/workflows/tests.yml`) runs the full pytest
+suite on every push and pull request targeting the `main` branch. The workflow
+uses the same Playwright container image, installs the Python dependencies with
+`pip`, and executes the tests to keep the automation suite healthy.
 
 ## Next steps
 
